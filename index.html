@@ -1,4 +1,3 @@
-<!-- Somsak Bounchareune: Assignment 3.2 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,11 +20,12 @@
         </nav>
         <section>
             <h2>Featured Artworks</h2>
+            <button id="highlight-btn">Highlight an Artwork</button>
+			<!-- Probably should add more art work to make it look more random -->
             <div class="art-gallery">
-                <!-- Images of Jules' artwork could be placed here -->
-				<img src="images/longdragon.jpg" alt= Chinese Dragon>
-                <img src="images/bluedragon.jpg" alt= Wired Dragon>
-                
+                <img src="images/longdragon.jpg" alt="Chinese Dragon">
+                <img src="images/steadywaters.jpg" alt="Pastel calm waters">
+                <img src="images/bluedragon.jpg" alt="Wired Dragon">
             </div>
         </section>
         <footer>
@@ -33,5 +33,20 @@
             <p>Email: jules@levanhart.com</p>
         </footer>
     </div>
+    <script>
+        document.getElementById('highlight-btn').addEventListener('click', function() {
+            const images = document.querySelectorAll('.art-gallery img');
+            const index = Math.floor(Math.random() * images.length);
+
+            // Remove highlight from all images
+            images.forEach(img => {
+                img.style.boxShadow = 'none';
+            });
+
+            // Apply highlight to a random image
+            images[index].style.boxShadow = '0 0 10px 5px red';
+        });
+    </script>
 </body>
 </html>
+
